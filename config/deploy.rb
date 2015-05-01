@@ -1,19 +1,20 @@
-lock '3.1.0'
-# application name and the github repository
-set :application, 'MyBlog'
-
+set :application, 'myblog'
 set :repo_url, 'git@github.com:TwisterNo/MyBlog.git'
 
-# describe the rbenv environment we are deploying into
-set :rbenv_type, :user
-set :rbenv_ruby, '2.2.0'
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '/home/deploy/MyBlog'
+set :deploy_to, '/home/deploy/myblog'
+# set :scm, :git
+
+# set :format, :pretty
+# set :log_level, :debug
+# set :pty, true
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+# set :keep_releases, 5
 
 namespace :deploy do
 
@@ -24,6 +25,6 @@ namespace :deploy do
     end
   end
 
-  after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
+  after :finishing, 'deploy:restart'
 end
