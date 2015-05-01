@@ -1,6 +1,9 @@
 lock '3.1.0'
 # application name and the github repository
 set :application, 'MyBlog'
+default_run_options[:pty] = true
+
+
 set :repo_url, 'git@github.com:TwisterNo/MyBlog.git'
 
 # describe the rbenv environment we are deploying into
