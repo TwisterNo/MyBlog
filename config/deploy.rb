@@ -1,5 +1,5 @@
 set :application, 'myblog'
-set :repo_url, 'git@github.com:TwisterNo/MyBlog.git'
+set :repo_url, 'https://github.com/TwisterNo/MyBlog.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
