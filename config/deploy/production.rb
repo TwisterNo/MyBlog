@@ -10,6 +10,6 @@ set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 # the server(s) to deploy to
 server 'sysprog-linux.cloudapp.net', user: 'deploy', roles: %w{web app db}, primary: true
 # the path to deploy to
-set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
+set :deploy_to, "/home/deploy/#{fetch(:full_app_name)}"
 # set to production for Rails
 set :rails_env, :production
